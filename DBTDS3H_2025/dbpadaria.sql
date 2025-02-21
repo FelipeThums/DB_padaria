@@ -6,24 +6,24 @@ create database dbpadaria;
 use dbpadaria;
 --criando as tabelas no banco de dados
 
-create table tbGenero(
-codGen int not null auto_increment,
-nome varchar(100),
-primary key(codGen));
-
 create table tbFornecedores(
 codForn int not null auto_increment,
 nome varchar(100),
-email varchar(100),
+email varchar(100) unique,
 telCel char(10),
 primary key(codForn));
+
+
 
 create table tbClientes(
 codCli int not null auto_increment,
 nome varchar (100) not null,
 cpf char (14) not null unique,
-email varchar (100),
+email varchar (100) unique,
 primary key	(codCli));
+
+
+
 
 create table tbFuncionarios(
 codFunc int not null auto_increment,
@@ -33,9 +33,9 @@ telCel char(10),
 dataNasc datetime,
 salario decimal(9,2) default 0 check(salario >= 0),
 sexo char(1) default "F" check(sexo in("F","M")),
-codGen int not null,
-primary key(codFunc),
-foreign key(codGen)references tbGenero(codGen));
+primary key(codFunc)
+);
+
 
 create table tbUsuarios(
 codUsu int not null auto_increment,
@@ -81,3 +81,32 @@ desc tbFuncionarios;
 desc tbClientes;
 desc tbProdutos;
 desc tbVendas;
+
+-- Inserindo Registros das tabelas
+insert into tbClientes(nome,cpf,email)
+	values('Manuel Ribeiro','454.435.346-00','ribeiro.manu@hotmail.com');
+insert into tbClientes(nome,cpf,email)
+	values('Manuela','123.456.789-00','manu@hotmail.com');
+insert into tbClientes(nome,cpf,email)
+	values('Kafe','123.456.789-10','Kafezin@hotmail.com');
+
+
+
+
+insert into tbFornecedores(nome,email,telCel)
+	values('Panco','panco@sac.com.br','9968743108');
+
+insert into tbFornecedores(nome,email,telCel)
+	values('Visconti','Visc@sac.com.br','1234567890');
+
+
+
+
+insert into tbFuncionarios (nome,email,telCel,dataNasc,salario,sexo)
+	values ('Rogerio','jerinho@gmail.com','954375298','1980-02-20',8000,35,'M');
+
+-- Visualizando os registros nas tabelas
+
+Select * from tbClientes;
+Select * from tbFornecedores;
+Select * from tbFuncionarios;
