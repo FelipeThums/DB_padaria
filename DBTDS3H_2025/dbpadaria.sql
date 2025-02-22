@@ -104,10 +104,10 @@ insert into tbFornecedores(nome,email,telCel)
 
 
 insert into tbFuncionarios (nome,email,telCel,dataNasc,salario,sexo)
-	values ('Rogerio','jerinho@gmail.com','954375298','1980-02-20',8000,35,'M');
+	values ('Rogerio','jerinho@gmail.com','1234567890','1980-02-20','8000,35','M');
 
 insert into tbFuncionarios (nome,email,telCel,dataNasc,salario,sexo)
-	values ('Rogeria','jerinha@gmail.com','9543645438','1981-02-20',5000,35,'F');
+	values ('Fernanda','fernanda.guedes@gmail.com','1234567891','1981-02-20','5000,35','F');
 
 
 
