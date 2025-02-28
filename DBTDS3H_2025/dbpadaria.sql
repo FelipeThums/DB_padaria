@@ -58,6 +58,7 @@ codForn int not null,
 primary key(codProd),
 foreign key(codForn)references tbFornecedores(codForn));
 
+
 create table tbVendas(
 codVend int not null auto_increment,
 dataVenda date,
@@ -75,7 +76,6 @@ foreign key (codCli) references tbClientes (codCli));
 -- visualizando as tabelas
 show tables;
 -- visualizando a estrutura das tabelas
-desc tbGenero;
 desc tbUsuarios;
 desc tbFornecedores;
 desc tbFuncionarios;
@@ -94,11 +94,16 @@ insert into tbClientes(nome,cpf,email)
 
 
 
+
+
 insert into tbFornecedores(nome,email,telCel)
 	values('Panco','panco@sac.com.br','9968743108');
 
 insert into tbFornecedores(nome,email,telCel)
 	values('Visconti','Visc@sac.com.br','1234567890');
+
+
+
 
 
 
@@ -111,6 +116,10 @@ insert into tbFuncionarios (nome,email,telCel,dataNasc,salario,sexo)
 
 
 
+
+
+
+
 insert into tbUsuarios(nome,senha,codFunc)
 	values('rogerio','1234567891011',1);
 
@@ -118,9 +127,46 @@ insert into tbUsuarios(nome,senha,codFunc)
 insert into tbUsuarios(nome,senha,codFunc)
 	values('rogeria','1234567891001',2);
 
+
+
+
+
+
+
+insert into tbProdutos(descricao,quantidade,preco,dataVal,lote,codForn)
+	values ('Pao de forma', 1,4.99, '07/03/2026', 'A123456789', 1);
+
+
+insert into tbProdutos(descricao,quantidade,preco,dataVal,lote,codForn)
+	values ('Pao Frances', 11,0.99, '07/03/2026', 'B123456789', 2);
+
+
+insert into tbProdutos(descricao,quantidade,preco,dataVal,lote,codForn)
+	values ('Pao De Queijo', 5,8.99, '07/03/2026', 'C123456789',2);
+
+
+insert into tbProdutos(descricao,quantidade,preco,dataVal,lote,codForn)
+	values ('Geleia', 7,21.99, '07/03/2026', 'D123456789',1);
+
+
+insert into tbProdutos(descricao,quantidade,preco,dataVal,lote,codForn)
+	values ('Bolo de Laranja', 1,15.99, '07/03/2026', 'E123456789',2);
+
+
+insert into tbProdutos(descricao,quantidade,preco,dataVal,lote,codForn)
+	values ('Sonho', 5,27.99, '07/03/2026', 'F123456789',1);
+
+
+insert into tbProdutos(descricao,quantidade,preco,dataVal,lote,codForn)
+	values ('Cafezinho', 1,50.99, '07/03/2026', 'G123456789',1);
+
+insert into tbProdutos(descricao,quantidade,preco,dataVal,lote,codForn)
+	values ('Coxinha', 1,5.99, '28/02/2026', 'H123456789',2);
+
 -- Visualizando os registros nas tabelas
 
 Select * from tbClientes;
 Select * from tbFornecedores;
 Select * from tbFuncionarios;
 Select * from tbUsuarios;
+Select * from tbProdutos;
